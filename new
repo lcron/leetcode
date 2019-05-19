@@ -1,0 +1,10 @@
+#!usr/bin/bash
+
+dir=$(dirname $0)
+
+if [ -z "$1" ];then
+exit 1
+else
+cat $dir/new.c >> $dir/src/$1.c
+cat $dir/new.js >> $dir/src/$1.js
+fi

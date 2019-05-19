@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+
+
+dir=$(dirname $0)
+gcc -I$dir/includes/ -o $dir/bin/$1 $dir/src/$1.c $dir/includes/*.c
+
+$dir
