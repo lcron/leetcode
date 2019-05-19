@@ -133,11 +133,24 @@ rand_array =(len,max,min,only)=>{
 }
 
 line_array = (len,start) =>{
-
+  start = start || 0
+  var a = []
+  for(var i = 0; i < len;i++){
+    a[i] = ++start
+  }
+  return a
 }
 
 mixup=(a)=>{
-  
+  for(var i=0;i<a.length;i++){
+    var x = rand(a.length-1)
+    var y = rand(a.length-1)
+    var tmp = a[x]
+    a[x] = a[y]
+    a[y] = tmp
+    
+  }
+  return a
 }
 
 } // module.exports
