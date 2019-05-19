@@ -34,13 +34,17 @@ function randcase(level){
   }
 }
 
+
 tests(proc,randcase(10),10)
 
 console.log("level: ",100)
 tests(proc,randcase(100),10,2)
 
 console.log("level: ",1000)
-tests(proc,randcase(1000),10,2)
+tests(proc,randcase(1000),10,1)
 
 console.log("level: ",10000)
-tests(proc,randcase(10000),10,2)
+tests(proc,randcase(10000),10,1)
+
+console.log("level: ",50000)
+tests(proc,randcase(50000),10,1)
