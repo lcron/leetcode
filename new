@@ -1,10 +1,32 @@
-#!usr/bin/bash
+#!/usr/bin/node
 
-dir=$(dirname $0)
+fs = require("fs")
+path = require("path")
 
-if [ -z "$1" ];then
-exit 1
-else
-cat $dir/new.c >> $dir/src/$1.c
-cat $dir/new.js >> $dir/src/$1.js
-fi
+ext = path.extname(process.argv[2])
+name = path.basename(process.argv[2],ext)
+
+fs.readFile("template/src"+ext,(err,data)=>{
+  if(err){
+    console.log("错误：没有这个语言的模板\t"+ext)
+    process.exit(1)
+  }
+  
+  fs.writeFile("src/"+name+ext,data.toString("utf-8").replace(/@1/g,name),(err)=>{
+    if(err) throw err
+  })
+
+})
+
+fs.readFile("template/test"+ext,(err,data)=>{
+  if(err){
+    console.log("错误：没有这个语言的模板\t"+ext)
+    process.exit(1)
+  }
+  
+  
+  fs.writeFile("test/"+name+ext,data.toString("utf-8").replace(/@1/g,name),(err)=>{
+    if(err) throw err
+  })
+
+})

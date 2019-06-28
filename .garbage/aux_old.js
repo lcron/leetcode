@@ -1,6 +1,5 @@
 
 module.exports = {
-eq:(a,b) => {a==b},
 eqArray:(a,b) => {
   if(!(a instanceof Array && b instanceof Array) ) 
     return false

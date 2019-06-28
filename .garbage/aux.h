@@ -2,6 +2,8 @@
 #ifndef _AUX_H
 #define _AUX_H
 
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
